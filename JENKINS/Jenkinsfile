@@ -1,0 +1,11 @@
+#basic jenkins file structure
+pipeline {
+	agent any
+	stages {
+		stage('Build') {
+			steps{
+				sh 'echo "Build completed."'
+			}
+		}
+	}
+}
