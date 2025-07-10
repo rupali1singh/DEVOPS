@@ -1,33 +1,11 @@
-#data block to mention the data resoutrce
-data "aws_ami" "amiID" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images....."]
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.amiID.id
+  instance_type = "t3.micro"
+  key_name = "dove-key"
+  vpc_security_group_ids = [aws_security_group.dove-s0g]
+  availability_zone = "us-east-1a"
+  tags = {
+    Name = "Dove-web"
+    Project = "Dove"
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099...."]
-
 }
-
-#output block
-
-output "instance_id" {
-  description = "ami id "
-  value       = data.aws_ami.amiID.id
-}
-
-
-
-# terraform fmt  : checkthe format
-# terraform init : read tf files ,check all the resource and plugin required will get dowloaded from terraform registery
-# terraform validate : values mentioned is syntactically correct or not
-# terraform plan : to check what is going to be impacted if we implement this  terraform code 
-
-
