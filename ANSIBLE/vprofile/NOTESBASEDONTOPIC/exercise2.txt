@@ -1,0 +1,7 @@
+### Summary of Grouping in Ansible
+    Type	Purpose
+    Host Groups in Inventory	Organize hosts by function (web, db, etc.)
+    Group Vars	Share variables across group members
+    Children Groups	Create meta-groups from multiple groups
+    Dynamic Groups	Auto-generated from dynamic inventory plugins
+    Playbook Targeting	Apply tasks to specific groups only

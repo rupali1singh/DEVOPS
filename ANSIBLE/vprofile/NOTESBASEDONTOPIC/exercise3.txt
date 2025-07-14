@@ -1,0 +1,31 @@
+#### Variable Precedence (Highest to Lowest)
+    Extra vars (--extra-vars)
+
+    Task-level vars
+
+    Block-level vars
+
+    Role vars
+
+    Playbook vars
+
+    Inventory host/group vars
+
+    Role defaults
+
+    Facts
+
+    Defaults in Ansible config
+
+#### Playbook Example with Variables
+    - name: Install a package
+    hosts: webservers
+    vars:
+        package_name: nginx
+    tasks:
+        - name: Install {{ package_name }}
+        apt:
+            name: "{{ package_name }}"
+            state: present
+
+
